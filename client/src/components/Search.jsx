@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Search = () => {
+// TO DO NEXT: PASS INPUT TEXT DATA TO HANDLE SUBMIT FUNCTION
+const Search = ({handleSearchInput, handleSearchSubmit}) => {
   return (
-    <form>
-      <input type='text' name='search' placeholder='Search...' />
+    <form onSubmit={handleSearchSubmit}>
+      <input type='text' name='search' onChange={handleSearchInput} placeholder='Search for a movie'/>
       <input type='submit' name='submit' />
     </form>
   )
