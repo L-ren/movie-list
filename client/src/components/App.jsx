@@ -3,6 +3,7 @@ import movies from '../movies/movieData.js'
 import MovieList from './MovieList.jsx'
 import Search from './Search.jsx'
 import Add from './Add.jsx'
+import WatchTabs from './WatchTabs.jsx'
 import {useState} from 'react'
 
 const App = function(props) {
@@ -39,12 +40,18 @@ const App = function(props) {
     setMovieList([...movieList, {'title': addValue, 'watched': false}]);
   };
 
+  var handleWatchToggle = (event, movie, index) => {
+    setMovieList(movieList.toSpliced(index, 1, {'title': movie.title, 'watched': !movie.watched}))
+    console.log(movieList);
+  };
+
   return (
     <>
     <h3>MovieList</h3>
+    <WatchTabs />
     <Add handleAddInput={handleAddInput} handleAddSubmit={handleAddSubmit}/>
     <Search handleSearchInput={handleSearchInput} handleSearchSubmit={handleSearchSubmit}/>
-    <MovieList movies={movieList} searchValue={searchValue}/>
+    <MovieList movies={movieList} searchValue={searchValue} handleWatchToggle={handleWatchToggle}/>
     </>);
   };
 

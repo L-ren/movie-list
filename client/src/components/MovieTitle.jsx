@@ -1,7 +1,11 @@
 import React from 'react';
 
-const MovieTitle = (movie, key) => {
-  return (<div>{movie.movie.title}</div>)
+const MovieTitle = ({movie, index, handleWatchToggle}) => {
+  var wasWatched = movie.watched ? 'Watched' : 'Watched?';
+  return (<div>
+    {movie.title}
+    <button onClick={() => {handleWatchToggle(event, movie, index)}} movie={movie}>{wasWatched}</button>
+    </div>)
 }
 
 
