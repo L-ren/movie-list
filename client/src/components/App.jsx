@@ -37,6 +37,7 @@ const App = function(props) {
   };
   var handleAddSubmit = (event) => {
     event.preventDefault();
+    console.log(addValue);
     setMovieList([...movieList, {'title': addValue, 'watched': false}]);
   };
 
